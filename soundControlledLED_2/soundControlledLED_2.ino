@@ -1,6 +1,18 @@
+/*
+ * Name:Roynuka Nukanuka
+ * Course:Embedded Systems
+ * Date:22/03/19
+ * Resource: https://docs.wixstatic.com/ugd/22a975_8c6883be82844b05a6b4e4db55373c73.pdf
+ * Resource: https://www.techexult.com/project-lessn 
+ */
+
 int DO = 2; //Pin for Digital Output - DO
 int AO = A0; // Pin for Analog Output - AO
-int soundThreshold = 523; //Set minimum sound level
+int soundThreshold = 540; //Set minimum sound level
+int soundThreshold2 = 530; //Set minimum sound level
+int soundThreshold3 = 520; //Set minimum sound level
+int soundThreshold4 = 510; //Set minimum sound level
+int soundThreshold5 = 500; //Set minimum sound level
 int sensorValue = 0;
 
 void setup()
@@ -16,19 +28,35 @@ void setup()
 
 void loop() 
 {
-  sensorvalue = analogRead(A0); //Read the analog value from sensor module A0
+  sensorValue = analogRead(A0); //Read the analog value from sensor module A0
   Serial.print("Analog: ");
   Serial.print(sensorValue); //Print the analog value
   Serial.print(" ");
   Serial.print("Digital: ");
   Serial.println(digitalRead(DO)); //Reads the value from the digital pin on the sensor module D0
-  if (sensoralue >= soundThreshold)
+  if (sensorValue >= soundThreshold)
   { //Compare analog value with threshold
     //Lights up LED's
     digitalWrite(8, HIGH);
+  }
+  // if sound reaches a certain volume then LED lights will blink
+  else if (sensorValue >=soundThreshold2)
+  {
     digitalWrite(9, HIGH);
+  }
+  // if sound reaches a certain volume then LED lights will blink
+   else if (sensorValue >=soundThreshold3)
+  {
     digitalWrite(10, HIGH);
+  }
+  // if sound reaches a certain volume then LED lights will blink
+  else if (sensorValue >=soundThreshold4)
+  {
     digitalWrite(11, HIGH);
+  }
+  // if sound reaches a certain volume then LED lights will blink
+   else if (sensorValue >=soundThreshold5)
+  {
     digitalWrite(12, HIGH);
   }
 else

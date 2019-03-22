@@ -6,6 +6,9 @@
  * Resource: https://www.techexult.com/project-lessn 
  */
 
+/*
+ * Original Code Start
+ */
 int DO = 2; //Pin for Digital Output - DO
 int AO = A0; // Pin for Analog Output - AO
 int soundThreshold = 540; //Set minimum sound level
@@ -34,6 +37,23 @@ void loop()
   Serial.print(" ");
   Serial.print("Digital: ");
   Serial.println(digitalRead(DO)); //Reads the value from the digital pin on the sensor module D0
+
+  /* Original Code
+    if (sensorValue >= soundThreshold)
+  { //Compare analog value with threshold
+    //Lights up LED's
+    digitalWrite(8, HIGH);
+    digitalWrite(8, HIGH);
+    digitalWrite(8, HIGH);
+    digitalWrite(8, HIGH);
+    digitalWrite(8, HIGH);
+  }
+  Original Code End
+  */
+
+  /*
+   * Added Code by myself
+   */
   if (sensorValue >= soundThreshold)
   { //Compare analog value with threshold
     //Lights up LED's
@@ -60,6 +80,10 @@ void loop()
     digitalWrite(12, HIGH);
   }
 else
+
+  /*
+   * Original Code
+   */
   {
     //turns off LED's
     digitalWrite(8, LOW);
